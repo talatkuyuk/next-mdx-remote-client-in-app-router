@@ -1,0 +1,126 @@
+---
+title: "How to use next-mdx-remote-client for dynamic MDX contents"
+author: "chatGPT"
+date: May 23, 2024
+summary: I prompted to chatGPT saying that write a markdown/MDX article about "next-mdx-remote-client" published on npm.
+---
+
+_Read in {readingTime}, written by **{frontmatter.author}**_
+
+# {frontmatter.title}
+
+<Toc toc={toc} ordered indented maxDepth={3} tight />
+
+The **`next-mdx-remote-client`** is a powerful library that allows you to =r=render MDX content== in a `Next.js` application.
+
+:::tip Dynamic MDX Contents
+`next-mdx-remote-client` is also useful when you need to handle `dynamic MDX content` 
+fetched from an external API or any other source that isn't available at build time.
+:::
+
+In this article, handling dynamic MDX content that isn't available at build time is going to be explained.
+
+## Installation
+To install `next-mdx-remote-client`, you can use npm or yarn:
+
+```bash
+# with npm
+npm install next-mdx-remote-client
+# with yarn
+yarn add next-mdx-remote-client
+```
+
+## Usage
+### Basic Setup
+First, import the library and use it in your component:
+
+```typescript:pages/demo.tsx
+import { useState, useEffect } from 'react';
+import { MDXClient, type SerializeResult } from 'next-mdx-remote-client';
+
+const { components } from "../mdxComponents"
+
+export default function Page() {
+  const [mdxSource, setMdxSource] = useState<SerializeResult | null>(null);
+
+  useEffect(() => {
+    // Fetch the MDX content from your API
+    const fetchData = async () => {
+      const res = await fetch('/api/mdx-content');
+      const data = await res.json();
+      setMdxSource(data);
+    };
+    fetchData();
+  }, []);
+
+  if (!mdxSource) {
+    return <div>Loading...</div>;
+  }
+
+  if ("error" in mdxSource) {
+    return <div>{mdxSource.error.message}</div>;
+  }
+
+  return (
+    <MDXClient
+      {...mdxSource}
+      components={components}
+    />
+  );
+};
+```
+
+### Fetching and Serializing MDX Content in API
+To =r=fetch and serialize MDX content==, you can use a server-side function or an API route in `Next.js`:
+
+```javascript:pages/api/mdx-content.js
+import { serialize } from 'next-mdx-remote-client/serialize';
+
+export default async (req, res) => {
+  const source = getSourceSomeHow();
+  const mdxSource = await serialize({source, options: {
+    disableImports: true,
+    parseFrontmatter: true,
+    scope: {
+      readingTime: calculateSomeHow(source),
+    },
+    mdxOptions: {
+      remarkPlugins: [
+        // ...
+      ],
+      rehypePlugins: [
+        // ...
+      ],	
+    },
+  }});
+
+  res.status(200).json(mdxSource);
+};
+```
+
+## Features
+### Render MDX content
+`next-mdx-remote-client` allows you to render MDX content from any source.
+
+### Custom Components
+Enhance your MDX content by integrating custom React components, providing a richer and more interactive experience.
+
+### Easy Integration
+The library is designed to integrate seamlessly with `Next.js`, leveraging its powerful features like API routes and server-side rendering (SSR).
+
+### Vfile Data into Scope
+`next-mdx-remote-client` allows you to copy `vfile.data` into the `scope` via an option. 
+It is usefull especially for creating table of contents (TOC) using a remark plugin called `remark-flexible-toc`.
+
+### Internal Error Handling
+`next-mdx-remote-client` provides internal error handling mechanism for both client side and server side.
+
+## Conclusion
+The `next-mdx-remote-client` library is a versatile and powerful tool for rendering MDX content in Next.js applications. 
+With its support for dynamic content and custom components, it opens up new possibilities for creating rich, interactive web pages.
+
+:::warning
+Always ensure to handle loading states and possible errors when fetching content dynamically to improve the user experience.
+:::
+
+For more information, check out the official [documentation](https://github.com/ipikuka/next-mdx-remote-client).
