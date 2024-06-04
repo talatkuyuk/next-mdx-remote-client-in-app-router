@@ -1,0 +1,135 @@
+---
+title: "Test MDX with Disabling Imports/Exports"
+author: "foofoo"
+date: May 19, 2023
+summary: "summary test basic"
+---
+
+import Bar from "../../../mdxComponents/Bar.mjs";
+
+_Read in {readingTime}, written by **{frontmatter.author}**_
+
+# {frontmatter.title}
+
+## Section 1
+
+### Heading For Components
+
+<Hello name={props.foo} />
+
+<CountButton />
+
+<Dynamic />
+
+<Bar className="i-am-imported-component" />
+
+### Heading For Plugins
+
+#### SubHeading For Flexible Markers
+
+Marked texts: ==text with **yellow** phrase==, =r=text with **red** phrase==, =g=text with **green** phrase==, and =b=text with **blue** phrase==.
+
+#### SubHeading For Emojies
+
+Some **markdown** _content_ :+1:
+
+#### SubHeading For Flexible Paragraphs
+
+~a|> Alert Text Centered
+~w:> Warning Text Aligned Right
+
+#### SubHeading For Flexible Containers
+
+::: warning 
+You have to put an empty line after `export` statements in the mdx files.
+:::
+
+::: danger Exports May Be Harmful
+Can you explain why the `exports` may cause harmful activities ?
+<details>
+  <summary>**The ways of removing exports**</summary>
+  + You can use `disableExports: true` option to remove all `export` statements
+  + You can use a custom `recma` plugin to remove all exports other than default,
+  but the declarations stay and work in the mdx (needs a recma plugin)
+  <p>_What do you think about that?_</p>
+</details>
+:::
+
+::: tip Some Useful Tips
+#### Recma Plugins
+Recma plugins are very usefull for solving specific mdx issues.
+#### Table of Contents (TOC)
+The remark plugin `remark-flexible-toc` is the tool for creating TOC, especially for the mdx users.
+You can create a custom `<Toc />` component, and use it in the mdx file like `<Toc toc={toc} />`.
+:::
+
+::: details \{details} Sample Details-Summary \{summary}
+The `remark-flexible-containers` can also make this kind of `details`-`summary` HTML elements.
+:::
+
+### Heading For Code Highlighting
+
+```typescript:demo.ts
+// prettier-ignore
+function Text(text: string) {console.log(text)}
+const text = "next-mdx-remote-client";
+Text(text);
+```
+
+export function factorial(factor) {
+  if (factor <= 1) {
+    return 1;
+  }
+  return factor * factorial(factor - 1);
+}
+
+## Section 2
+
+### Heading For GFM
+
+Autolink www.example.com and `inline code`.
+
+~one tilde strikethrough~ or ~~two tildes strikethrough~~
+
+Here is ~deleted text~ and ++inserted text++
+
+| Left Aligned Header  | Right Aligned Header |
+| :------------------- | -------------------: |
+| Content Cell         | Content Cell         |
+| Content Cell         | Content Cell         |
+
+### Heading For Miscellenous
+
+#### SubHeading for Lists
+
++ List item with normal text
++ List item with **bold text**
++ List item with *italic text*
+
+#### SubHeading For Escapes
+
+"Authorize \<GITHUB_USER>"
+
+version of \<operation>.\<mount> \<= 1.3.x
+
+< 8ms (allowed one blank after "\<")
+
+escape opening curlybraces "\{}"
+
+#### SubHeading For Centering
+
+~|> Centering **text** and **image** is very easy !
+~|> <Image src="/images/cover.png" alt="cover" width={180} height={40} />
+~|> ![cover](/images/cover.png)
+
+#### SubHeading For Blockquates
+
+=b=blockquate markdown element==
+> The `@import` is used to **import style rules** from other valid stylesheets.
+
+=b=custom blockquate element==
+<BlockQuote>
+  The `@import` is used to **import style rules** from other valid stylesheets.
+</BlockQuote>
+
+export const num = 6;

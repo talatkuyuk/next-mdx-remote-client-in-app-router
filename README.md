@@ -1,4 +1,4 @@
-# a blog application with `next-mdx-remote-client` for app router in Next.js
+# It is a blog application with `next-mdx-remote-client` for app router in Next.js
 
 It is a `nextjs` application for demonstration of `next-mdx-remote-client`'s features in app router.
 

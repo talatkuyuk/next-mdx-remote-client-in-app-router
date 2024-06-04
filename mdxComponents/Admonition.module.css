@@ -1,0 +1,92 @@
+.admonition-container {
+  padding: 1em 1em 0.8em;
+  margin: 1rem 0;
+
+  border-radius: 0.375em;
+  border: 0px solid;
+  border-left-width: 0.3em;
+
+  box-shadow: var(--ifm-global-shadow-lw);
+  color: var(--color-admonition);
+  border-color: var(--color-admonition-border);
+  background-color: var(--color-admonition-background);
+
+  display: flex;
+  flex-direction: column;
+}
+
+.admonition-container.note {
+  --color-admonition: var(--ifm-color-note-foreground);
+  --color-admonition-border: var(--ifm-color-note-border);
+  --color-admonition-background: var(--ifm-color-note-background);
+  --color-admonition-icon: var(--ifm-color-note-icon);
+  --color-admonition-highlight: var(--ifm-color-note-highlight);
+}
+
+.admonition-container.tip {
+  --color-admonition: var(--ifm-color-success-foreground);
+  --color-admonition-border: var(--ifm-color-success-border);
+  --color-admonition-background: var(--ifm-color-success-background);
+  --color-admonition-icon: var(--ifm-color-success-icon);
+  --color-admonition-highlight: var(--ifm-color-success-highlight);
+}
+
+.admonition-container.info {
+  --color-admonition: var(--ifm-color-info-foreground);
+  --color-admonition-border: var(--ifm-color-info-border);
+  --color-admonition-background: var(--ifm-color-info-background);
+  --color-admonition-icon: var(--ifm-color-info-icon);
+  --color-admonition-highlight: var(--ifm-color-info-highlight);
+}
+
+.admonition-container.warning {
+  --color-admonition: var(--ifm-color-warning-foreground);
+  --color-admonition-border: var(--ifm-color-warning-border);
+  --color-admonition-background: var(--ifm-color-warning-background);
+  --color-admonition-icon: var(--ifm-color-warning-icon);
+  --color-admonition-highlight: var(--ifm-color-warning-highlight);
+}
+
+.admonition-container.danger {
+  --color-admonition: var(--ifm-color-danger-foreground);
+  --color-admonition-border: var(--ifm-color-danger-border);
+  --color-admonition-background: var(--ifm-color-danger-background);
+  --color-admonition-icon: var(--ifm-color-danger-icon);
+  --color-admonition-highlight: var(--ifm-color-danger-highlight);
+}
+
+.admonition-title {
+  margin-bottom: 0.4rem;
+  font-size: 1em;
+  font-weight: 700;
+  color: var(--color-text-default);
+
+  display: flex;
+  align-items: center;
+}
+
+.admonition-title svg {
+  width: 1.2em;
+  height: 1.2em;
+  margin-right: 0.5em;
+  fill: var(--color-admonition-icon);
+}
+
+.admonition-content p {
+  color: var(--color-text-strong);
+}
+
+.admonition-content code {
+  background-color: var(--color-admonition-highlight) !important;
+}
+
+.admonition-content a {
+  color: var(--color-admonition);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  text-underline-position: under;
+}
+
+.admonition-content a:hover {
+  color: var(--color-admonition);
+}

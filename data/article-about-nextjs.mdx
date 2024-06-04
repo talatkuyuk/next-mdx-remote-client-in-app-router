@@ -1,0 +1,175 @@
+---
+title: "An Introduction to Next.js"
+author: "chatGPT"
+date: May 23, 2024
+summary: |
+         I prompted to chatGPT saying that write an article about "next.js" including markdown headings, 
+         inline codes, code fences, containers, bold, italic texts, blockquotes, lists etc.		
+---
+
+_Read in {readingTime}, written by **{frontmatter.author}**_
+
+# {frontmatter.title}
+
+<Toc toc={toc} ordered indented maxDepth={3} tight />
+
+**Next.js** is a powerful framework for building React applications with ease and efficiency. Developed by Vercel, `Next.js` provides a rich set of features that enhance the development experience, including server-side rendering, static site generation, API routes, and more.
+
+## Key Features of Next.js
+### Server-Side Rendering (SSR)
+Server-side rendering allows you to pre-render your pages on the server, improving performance and SEO.
+
+```jsx
+export async function getServerSideProps(context) {
+  return {
+    props: {
+      // data to be passed to the page component
+    },
+  };
+}
+
+const Page = ({ data }) => {
+  return <div>{data}</div>;
+};
+
+export default Page;
+```
+
+### Static Site Generation (SSG)
+With static site generation, you can generate HTML at build time, making your site incredibly fast.
+
+```jsx
+export async function getStaticProps() {
+  return {
+    props: {
+      // data to be passed to the page component
+    },
+  };
+}
+
+const Page = ({ data }) => {
+  return <div>{data}</div>;
+};
+
+export default Page;
+```
+
+### API Routes
+Next.js allows you to create API endpoints within your application, providing a seamless way to handle backend logic.
+
+```javascript:pages/api/hello.js
+export default function handler(req, res) {
+  res.status(200).json({ message: 'Hello World' });
+}
+```
+
+### File-based Routing
+Next.js uses a file-based routing system, simplifying the process of creating and managing routes.
+
+```jsx:pages/index.jsx
+const HomePage = () => {
+  return <h1>Home Page</h1>;
+};
+
+export default HomePage;
+```
+
+## Setting Up a Next.js Project
+Setting up a `Next.js` project is straightforward. You can start by using the `create-next-app` CLI.
+
+```bash
+npx create-next-app my-next-app
+cd my-next-app
+npm run dev
+```
+
+## Building Components
+Components are the building blocks of a Next.js application. Here's an example of a simple component:
+
+```jsx:components/MyComponent.jsx
+const MyComponent = () => {
+  return <div>Hello, Next.js!</div>;
+};
+
+export default MyComponent;
+```
+To use this component in a page:
+
+```jsx:pages/index.jsx
+import MyComponent from '../components/MyComponent';
+
+const HomePage = () => {
+  return (
+    <div>
+      <h1>Welcome to Next.js</h1>
+      <MyComponent />
+    </div>
+  );
+};
+
+export default HomePage;
+```
+
+## Styling in Next.js
+`Next.js` supports various styling options including **`CSS Modules`** and **`styled-jsx`**.
+
+### CSS Modules
+```jsx:styles/Home.module.css
+.container {
+  padding: 20px;
+  background-color: #f0f0f0;
+}
+```
+
+```jsx:pages/index.jsx
+import styles from '../styles/Home.module.css';
+
+const HomePage = () => {
+  return (
+    <div className={styles.container}>
+      Welcome to Next.js
+    </div>
+  ); 
+};
+
+export default HomePage;
+```
+
+### Styled JSX
+```jsx:pages/index.jsx
+const HomePage = () => {
+  return (
+    <div>
+      <h1>Welcome to Next.js</h1>
+      <style jsx>{`
+        h1 {
+          color: blue;
+        }
+      `}</style>
+    </div>
+  );
+};
+
+export default HomePage;
+```
+
+## Deployment
+Deploying a `Next.js` application is easy, especially with Vercel. You can deploy directly from your Git repository.
+
+1. **Push your code to GitHub, GitLab, or Bitbucket.**
+2. **Sign in to Vercel and import your project.**
+3. **Follow the prompts to deploy.**
+
+## Conclusion
+`Next.js` is a versatile framework that offers a plethora of features to streamline the development of React applications. Whether you're building a static site, a dynamic web app, or a hybrid of both, Next.js provides the tools and capabilities to help you succeed.
+
+:::tip Pro Tip
+Take advantage of `Next.js`'s powerful features to optimize your application's performance and user experience.
+:::
+
+## Resources
++ [Next.js Documentation](https://nextjs.org/docs)
++ [Next.js GitHub Repository](https://github.com/vercel/next.js)
++ [Vercel Platform](https://vercel.com)
+
+With these features and tools at your disposal, you can create robust, scalable, and high-performance web applications using `Next.js`.
