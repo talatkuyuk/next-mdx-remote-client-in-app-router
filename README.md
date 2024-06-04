@@ -1,36 +1,22 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# a blog application with `next-mdx-remote-client` for app router in Next.js
 
-## Getting Started
+It is a `nextjs` application for demonstration of `next-mdx-remote-client`'s features in app router.
 
-First, run the development server:
+The `nextjs` is one of the React Framework for the Web. 
 
+The `next-mdx-remote-client` is a package for compiling and running any MDX content on both server side and client side for `nextjs` applications. It uses `@mdx-js/mdx` and `@mdx-js/react` in background.
+
+## Install
+after cloning the repo:
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## `next-mdx-remote-client`
+In other words, the `next-mdx-remote-client` is a wrapper of the `@mdx-js/mdx` for `nextjs` applications in order to load MDX content. It is a fork of `next-mdx-remote`.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+You can find it in [github](https://github.com/ipikuka/next-mdx-remote-client) or [npm](https://www.npmjs.com/package/next-mdx-remote-client)
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+## Live demo
+You can reach a living web site at the about section in the sidebar.
