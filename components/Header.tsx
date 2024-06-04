@@ -1,9 +1,10 @@
+"use client";
+
 import { useEffect, useState } from "react";
 import { clsx } from "clsx";
 
 import Logo from "./Logo";
 import Navbar from "./Navbar";
-import NavigationLoader from "./NavigationLoader";
 import ThemeToggle from "./ThemeToggle";
 
 const Header = () => {
@@ -27,7 +28,6 @@ const Header = () => {
 
   return (
     <div className={clsx(["header", !top && "shadow"])}>
-      <NavigationLoader />
       <Logo onClick={resetIndicator} />
       <Navbar
         navbarIndicatorPosition={navbarIndicatorPosition}
