@@ -1,0 +1,8 @@
+*.mdx
+*.md
+
+.next
+.browserslistrc
+certificates
+node_modules
+out
