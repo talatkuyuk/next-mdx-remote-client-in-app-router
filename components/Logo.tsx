@@ -1,11 +1,11 @@
-import Link from "next/link";
+import Link from "@/components/Link";
 
 import styles from "./Logo.module.css";
 
-const Logo = (props: React.ComponentPropsWithoutRef<"div">) => {
+const Logo = (props: React.ComponentPropsWithoutRef<"a">) => {
   return (
-    <Link href="/" style={{ textDecoration: "none" }}>
-      <div id={styles.container} {...props}>
+    <Link href="/" style={{ textDecoration: "none" }} {...props}>
+      <div id={styles.container}>
         <div id={styles.logo}>
           <div id={styles.mask} />
           <div id={styles.curve4} className={styles.left} />

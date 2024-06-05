@@ -1,6 +1,7 @@
 import React, { useCallback, Dispatch, SetStateAction } from "react";
 import { usePathname } from "next/navigation";
-import Link from "next/link";
+
+import Link from "@/components/Link";
 
 type Props = {
   navbarIndicatorPosition?:

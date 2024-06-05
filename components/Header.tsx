@@ -6,6 +6,7 @@ import { clsx } from "clsx";
 import Logo from "./Logo";
 import Navbar from "./Navbar";
 import ThemeToggle from "./ThemeToggle";
+import NavigationLoader from "./NavigationLoader";
 
 const Header = () => {
   const [navbarIndicatorPosition, setNavbarIndicatorPosition] = useState<
@@ -33,6 +34,7 @@ const Header = () => {
         navbarIndicatorPosition={navbarIndicatorPosition}
         setNavbarIndicatorPosition={setNavbarIndicatorPosition}
       />
+      <NavigationLoader />
       <ThemeToggle />
     </div>
   );
