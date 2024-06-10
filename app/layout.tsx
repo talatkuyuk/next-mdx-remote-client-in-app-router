@@ -10,7 +10,7 @@ import "@/styles/hljs.css";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Ipikuka Blog Application",
+  title: "Ipikuka Blog",
   description:
     "Demonstration of next-mdx-remote-client's features in Next.js app router",
 };

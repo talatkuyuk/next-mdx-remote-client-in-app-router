@@ -470,6 +470,13 @@ div#mdx-loading {
   padding-inline: 0.5rem;
 }
 
+div#mdx-layout h2,
+div#mdx-layout h3,
+div#mdx-layout h4,
+div#mdx-layout h5 {
+  scroll-margin-top: 3rem;
+}
+
 .flexible-marker-default,
 .flexible-marker-yellow {
   background-color: var(--marked-yellow);

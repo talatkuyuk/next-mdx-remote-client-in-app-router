@@ -1,5 +1,3 @@
-import React from "react";
-
 type Props = React.SVGAttributes<SVGElement>;
 
 const IconCircleOk = (props: Props) => {
