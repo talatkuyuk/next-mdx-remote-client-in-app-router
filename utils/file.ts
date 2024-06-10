@@ -22,13 +22,19 @@ export const getSourceSync = (filename: string): string | undefined => {
   return fs.readFileSync(sourcePath, "utf8");
 };
 
+/**
+ * get the markdown file list
+ */
 export const getMarkdownFiles = (): string[] => {
   return fs
     .readdirSync(path.join(process.cwd(), "data"))
     .filter((filePath: string) => RE.test(filePath));
 };
 
-export const getMarkdownFile = async (
+/**
+ * get the source and format from a slug !
+ */
+export const getMarkdownFromSlug = async (
   slug: string
 ): Promise<
   | {
@@ -58,6 +64,9 @@ export const getMarkdownFile = async (
   }
 };
 
+/**
+ * get the frontmatter and slug of a file
+ */
 export const getPostInformation = (filename: string): Post | undefined => {
   const source = getSourceSync(filename);
 

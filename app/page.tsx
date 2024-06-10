@@ -1,12 +1,18 @@
+import type { Metadata } from "next";
+
 import VisitGithub from "@/components/VisitGithub";
 
-export default function Home() {
+export const metadata: Metadata = {
+  title: "Ipikuka Blog Main Page",
+};
+
+export default async function Home() {
   return (
     <main style={{ display: "grid", justifyItems: "center" }}>
       <p style={{ marginBottom: "0", textAlign: "center" }}>
         This is a <strong>blog application</strong> using{" "}
         <strong>next-mdx-remote-client</strong> in{" "}
-        <code>Next.js pages router</code>.
+        <code>Next.js app router</code>.
       </p>
       <VisitGithub style={{ marginTop: "0" }} />
       <div className="next-mdx-remote-client">next-mdx-remote-client</div>

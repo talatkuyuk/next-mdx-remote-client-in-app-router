@@ -1,3 +1,5 @@
+"use client";
+
 import { useDemoContext } from "@/contexts/DemoStateProvider";
 
 export default function ContextConsumer() {

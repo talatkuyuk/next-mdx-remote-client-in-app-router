@@ -46,9 +46,8 @@ const Link: React.FC<Parameters<typeof NextLink>[0]> = forwardRef(function Link(
       onClick={(e) => {
         if (isModifiedEvent(e)) return;
         e.preventDefault();
+        onClick?.(e);
         startTransition(() => {
-          onClick?.(e);
-
           const url = href.toString();
 
           if (replace) {

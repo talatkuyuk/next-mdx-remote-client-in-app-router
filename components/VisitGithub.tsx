@@ -1,5 +1,3 @@
-import React from "react";
-
 const VisitGithub = (props: React.ComponentPropsWithoutRef<"p">) => {
   return (
     <p {...props}>

@@ -1,3 +1,5 @@
+"use client";
+
 import { clsx } from "clsx";
 import type { TocItem, HeadingDepth, HeadingParent } from "remark-flexible-toc";
 
