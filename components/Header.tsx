@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { Suspense, useEffect, useState } from "react";
 import { clsx } from "clsx";
 
 import Logo from "./Logo";
@@ -34,7 +34,10 @@ const Header = () => {
         navbarIndicatorPosition={navbarIndicatorPosition}
         setNavbarIndicatorPosition={setNavbarIndicatorPosition}
       />
-      <NavigationLoader />
+      {/* https://nextjs.org/docs/messages/missing-suspense-with-csr-bailout */}
+      <Suspense>
+        <NavigationLoader />
+      </Suspense>
       <ThemeToggle />
     </div>
   );

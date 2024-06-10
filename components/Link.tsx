@@ -37,7 +37,7 @@ const Link: React.FC<Parameters<typeof NextLink>[0]> = forwardRef(function Link(
     } else {
       if (loading) end();
     }
-  }, [isPending]);
+  }, [isPending]); //eslint-disable-line react-hooks/exhaustive-deps
 
   return (
     <NextLink

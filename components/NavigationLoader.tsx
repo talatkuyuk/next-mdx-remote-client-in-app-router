@@ -1,3 +1,5 @@
+"use client";
+
 import { type CSSProperties, useEffect } from "react";
 import { usePathname, useSearchParams } from "next/navigation";
 import BeatLoader from "react-spinners/BeatLoader";
@@ -14,7 +16,7 @@ export default function NavigationLoader() {
     // console.log(`${pathname}?${searchParams}`);
 
     if (loading) end();
-  }, [pathname, searchParams]);
+  }, [pathname, searchParams]); //eslint-disable-line react-hooks/exhaustive-deps
 
   const cssOverride: CSSProperties = {
     position: "absolute",
