@@ -4,6 +4,7 @@ import { ThemeProvider } from "next-themes";
 
 import { TransitionProvider } from "@/contexts/TransitionProvider";
 import Header from "@/components/Header";
+import MotionFade from "@/components/MotionFade";
 
 import "@/styles/styles.css";
 import "@/styles/hljs.css";
@@ -28,7 +29,7 @@ export default function RootLayout({
           <div className="main-wrapper">
             <ThemeProvider enableSystem={false}>
               <Header />
-              {children}
+              <MotionFade>{children}</MotionFade>
             </ThemeProvider>
           </div>
         </TransitionProvider>
