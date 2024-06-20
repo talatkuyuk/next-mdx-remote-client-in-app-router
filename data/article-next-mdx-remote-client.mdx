@@ -23,7 +23,7 @@ In this article, handling dynamic MDX content that isn't available at build time
 ## Installation
 To install `next-mdx-remote-client`, you can use npm or yarn:
 
-```bash
+```bash noLineNumbers
 # with npm
 npm install next-mdx-remote-client
 # with yarn
@@ -34,11 +34,11 @@ yarn add next-mdx-remote-client
 ### Basic Setup
 First, import the library and use it in your component:
 
-```typescript:pages/demo.tsx
+```typescript:pages/demo.tsx {7, 9-17}
 import { useState, useEffect } from 'react';
 import { MDXClient, type SerializeResult } from 'next-mdx-remote-client';
 
-const { components } from "../mdxComponents"
+import { components } from "../mdxComponents"
 
 export default function Page() {
   const [mdxSource, setMdxSource] = useState<SerializeResult | null>(null);

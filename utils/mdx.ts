@@ -11,6 +11,9 @@ import remarkFlexibleToc from "remark-flexible-toc";
 import remarkInsert from "remark-ins";
 import rehypeRaw from "rehype-raw";
 import rehypeHighlight from "rehype-highlight";
+import rehypeHighlightLines, {
+  type HighlightLinesOptions,
+} from "rehype-highlight-code-lines";
 import rehypeSlug from "rehype-slug";
 import rehypePreLanguage from "rehype-pre-language";
 import recmaMdxEscapeMissingComponents from "recma-mdx-escape-missing-components";
@@ -52,10 +55,17 @@ const remarkPlugins: PluggableList = [
 ];
 
 const rehypePlugins: PluggableList = [
-  [rehypeRaw, { passThrough: nodeTypes }], // to allow HTML elements in "md" format, "passThrough" is for "mdx" works as well
   rehypeHighlight,
+  [
+    rehypeHighlightLines,
+    {
+      showLineNumbers: true,
+      lineContainerTagName: "div",
+    } as HighlightLinesOptions,
+  ],
   rehypeSlug,
   rehypePreLanguage,
+  [rehypeRaw, { passThrough: nodeTypes }], // to allow HTML elements in "md" format, "passThrough" is for "mdx" works as well
 ];
 
 const recmaPlugins: PluggableList = [
