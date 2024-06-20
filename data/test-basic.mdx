@@ -69,11 +69,17 @@ The `remark-flexible-containers` can also make this kind of `details`-`summary` 
 
 ### Heading For Code Highlighting
 
-```typescript:demo.ts
+```typescript:demo.ts {3}
 // prettier-ignore
 function Text(text: string) {console.log(text)}
 const text = "next-mdx-remote-client";
 Text(text);
+```
+
+```diff:page.tsx
+// example for deletion and addition lines
+- { MDXRemote } from "next-mdx-remote";
++ { MDXClient } from "next-mdx-remote-client"; 
 ```
 
 export function factorial(factor) {

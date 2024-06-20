@@ -44,6 +44,10 @@ svg {
   --label-background: rgb(210, 245, 140);
   --label-text: rgb(64 64 64);
   --code-titlebar: #dbe8fd;
+  --diff-addition-bgColor: #dafbe1;
+  --diff-deletion-bgColor: #ffebe9;
+  --code-highlight-bgColor: #f0f4f9;
+  --code-highlight-border-left: rgb(59, 130, 246);
 
   --ifm-color-white: #fff;
   --ifm-color-black: #000;
@@ -183,6 +187,10 @@ svg {
   --label-background: rgb(80, 92, 56);
   --label-text: rgb(212 212 212);
   --code-titlebar: #293750;
+  --diff-addition-bgColor: #2ea04326;
+  --diff-deletion-bgColor: #f8514926;
+  --code-highlight-bgColor: #27292c;
+  --code-highlight-border-left: #388bfd66;
 
   --ifm-color-scheme: dark;
   --ifm-color-emphasis-0: var(--ifm-color-gray-1000);
@@ -544,39 +552,40 @@ p.demo-context span.demo-context-counter {
   color: var(--primary);
 }
 
-pre {
-  padding: 0.5rem 1rem;
-  background-color: var(--surface1);
+blockquote {
+  margin: 1rem 0;
+  padding: 0.1rem 2rem 0.1rem 3rem;
+  color: var(--text-default);
+  background-color: var(--ifm-color-emphasis-100);
+  border-left: 0.4em solid var(--ifm-color-emphasis-300);
+  font-style: italic;
+  letter-spacing: 0.2em;
+  word-spacing: 0.2em;
+}
+
+blockquote code {
+  background-color: var(--ifm-color-emphasis-200);
+}
+
+/******** CODE CONTAINER - CODE TITLE - LABEL ********/
+
+.remark-code-container {
+  margin-top: 0.5rem;
+
+  display: grid; /* in order { overflow-x: auto; } work in child <pre> */
+}
+
+.remark-code-title {
+  padding: 2px 0 4px 1rem;
+  color: var(--text-weak);
+  font-size: 95%;
+  background-color: var(--code-titlebar);
   border: 1px solid var(--text-veryweak);
-  border-radius: 5px;
-
-  display: grid;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
 }
 
-.remark-code-title + pre {
-  border-top: none;
-  border-top-left-radius: 0;
-  border-top-right-radius: 0;
-  border-bottom-left-radius: 5px;
-  border-bottom-right-radius: 5px;
-}
-
-pre > code {
-  overflow-x: auto;
-}
-
-:not(pre) > code {
-  padding-inline: 2px;
-  background-color: var(--inline-code);
-  color: var(--ifm-color-emphasis-800);
-  font-weight: 600;
-}
-
-.remark-code-container pre {
-  margin-top: 0;
-}
-
-pre .pre-language-label {
+.pre-language-label {
   padding: 5px 0.5rem;
   color: var(--label-text);
   background-color: var(--label-background);
@@ -586,11 +595,11 @@ pre .pre-language-label {
   position: absolute;
   top: 0;
   right: 10%;
+  z-index: 1;
 }
 
-pre button.pre-copy-button {
+.pre-copy-button {
   padding: 0.2em;
-  /* color: var(--text-strong); */
   background-color: var(--code-titlebar);
   border-radius: 5px;
   border: none;
@@ -607,36 +616,99 @@ pre button.pre-copy-button {
   visibility: hidden;
 }
 
-pre:hover button.pre-copy-button {
+pre:hover .pre-copy-button {
   opacity: 1;
   visibility: visible;
 }
 
-blockquote {
-  margin: 1rem 0;
-  padding: 0.1rem 2rem 0.1rem 3rem;
-  color: var(--text-default);
-  background-color: var(--ifm-color-emphasis-100);
-  border-left: 0.4em solid var(--ifm-color-emphasis-300);
-  font-style: italic;
-  letter-spacing: 0.2em;
-  word-spacing: 0.2em;
+/******** PRE - CODE ********/
+
+pre,
+pre code {
+  background-color: var(--surface1);
+
+  direction: ltr;
+  text-align: left;
+  white-space: pre;
+  word-spacing: normal;
+  word-break: normal;
+  line-height: 1.2;
+  tab-size: 2;
+  hyphens: none;
 }
 
-blockquote code {
-  background-color: var(--ifm-color-emphasis-200);
-}
-
-.remark-code-container {
-  margin-top: 0.5rem;
-}
-
-.remark-code-title {
-  padding: 2px 0 4px 1rem;
-  color: var(--text-weak);
-  font-size: 95%;
-  background-color: var(--code-titlebar);
+pre {
+  padding: 0.5rem 1rem;
   border: 1px solid var(--text-veryweak);
-  border-top-left-radius: 5px;
-  border-top-right-radius: 5px;
+  border-radius: 5px;
+
+  position: relative; /* for pre-language-label */
+  overflow-x: auto;
+}
+
+.remark-code-title + pre {
+  border-top: none;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+
+.remark-code-container pre {
+  margin-top: 0;
+}
+
+pre > code {
+  float: left;
+  min-width: 100%;
+}
+
+:not(pre) > code {
+  padding-inline: 2px;
+  background-color: var(--inline-code);
+  color: var(--ifm-color-emphasis-800);
+  font-weight: 600;
+}
+
+.code-line {
+  padding-left: 12px;
+  padding-right: 12px;
+  margin-left: -12px;
+  margin-right: -12px;
+  border-left: 4px solid transparent; /* prepare for highlighted code-lines */
+}
+
+div.code-line:empty {
+  /* it is necessary because there is no eol character in div code-lines */
+  height: 15.5938px; /* calculated height */
+}
+
+span.code-line {
+  min-width: 100%;
+  display: inline-block;
+}
+
+.code-line.inserted {
+  background-color: var(--diff-addition-bgColor);
+}
+
+.code-line.deleted {
+  background-color: var(--diff-deletion-bgColor);
+}
+
+.highlighted-code-line {
+  background-color: var(--code-highlight-bgColor);
+  border-left: 4px solid var(--code-highlight-border-left);
+}
+
+.numbered-code-line::before {
+  content: attr(data-line-number);
+
+  margin-left: -8px;
+  margin-right: 16px;
+  width: 1rem;
+  color: var(--text-veryweak);
+  text-align: right;
+
+  display: inline-block;
 }
