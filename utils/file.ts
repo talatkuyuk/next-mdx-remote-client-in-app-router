@@ -5,7 +5,7 @@ import { getFrontmatter } from "next-mdx-remote-client/utils";
 import type { Post, Frontmatter } from "@/types";
 import { getMarkdownExtension } from ".";
 
-export const RE = /\.mdx?$/u; // Only .md(x) files
+export const RE = /\.mdx?$/; // Only .md(x) files
 // text.replace(RE, "")
 
 export const getSource = async (
