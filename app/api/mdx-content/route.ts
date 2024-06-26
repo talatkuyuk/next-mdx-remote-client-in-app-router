@@ -1,5 +1,5 @@
-import { delay, getMarkdownExtension, replaceLastDashWithDot } from "@/utils";
-import { getMarkdownFromSlug, getSource } from "@/utils/file";
+import { delay } from "@/utils";
+import { getMarkdownFromSlug } from "@/utils/file";
 import { NextRequest } from "next/server";
 
 export const dynamic = "force-dynamic";
@@ -21,10 +21,10 @@ export async function GET(request: NextRequest) {
     });
   }
 
-  await delay(500); // iot see the loading state on the client
-
   try {
     const file = await getMarkdownFromSlug(slug);
+
+    await delay(500); // iot see the loading state on the client
 
     if (!file) {
       return Response.json({ error: "The source file could not found" });
