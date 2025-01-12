@@ -11,27 +11,27 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@heroicons/react": "^2.1.4",
+    "@heroicons/react": "^2.2.0",
     "@types/hast": "^3.0.4",
     "@types/mdast": "^4.0.4",
     "clsx": "^2.1.1",
-    "framer-motion": "^11.2.12",
+    "framer-motion": "^11.17.0",
     "mdast-util-to-hast": "^13.2.0",
-    "next": "^14.2.4",
-    "next-mdx-remote-client": "^1.0.3",
-    "next-themes": "^0.3.0",
+    "next": "^14.2.23",
+    "next-mdx-remote-client": "^1.0.6",
+    "next-themes": "^0.4.4",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
-    "react-spinners": "^0.14.0",
+    "react-spinners": "^0.15.0",
     "reading-time-estimator": "^1.11.0",
     "recma-mdx-change-props": "^1.1.1",
     "recma-mdx-escape-missing-components": "^1.1.0",
-    "rehype-highlight": "^7.0.0",
+    "rehype-highlight": "^7.0.1",
     "rehype-highlight-code-lines": "^1.0.4",
     "rehype-pre-language": "^1.1.0",
     "rehype-raw": "^7.0.0",
     "rehype-slug": "^6.0.0",
-    "remark-emoji": "^5.0.0",
+    "remark-emoji": "^5.0.1",
     "remark-flexible-code-titles": "^1.2.0",
     "remark-flexible-containers": "^1.2.1",
     "remark-flexible-markers": "^1.2.1",
@@ -42,11 +42,11 @@
     "unified": "^11.0.5"
   },
   "devDependencies": {
-    "@types/node": "^20",
-    "@types/react": "^18",
-    "@types/react-dom": "^18",
-    "eslint": "^8",
-    "eslint-config-next": "^14.2.4",
-    "typescript": "^5.5"
+    "@types/node": "^22.10.5",
+    "@types/react": "^18.3.18",
+    "@types/react-dom": "^18.3.5",
+    "eslint": "^8.57.1",
+    "eslint-config-next": "^14.2.23",
+    "typescript": "^5.7.3"
   }
 }
