@@ -47,6 +47,7 @@ export default async function TestPage() {
 
   // *** JUST FOR TESTING FOR GETTING RESULTS FROM EVALUATE ***
 
+  // eslint-disable-next-line @typescript-eslint/no-unsafe-function-type
   expect((mod.factorial as Function)?.(mod.num)).toEqual(720);
   expect(frontmatter.author).toBe("foofoo");
   expect(scope.readingTime).toBe("5 min read");

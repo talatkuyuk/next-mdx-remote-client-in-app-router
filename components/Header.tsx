@@ -21,7 +21,8 @@ const Header = () => {
 
   useEffect(() => {
     const scrollHandler = () => {
-      window.scrollY > 10 ? setTop(false) : setTop(true);
+      if (window.scrollY > 10) setTop(false);
+      else setTop(true);
     };
     window.addEventListener("scroll", scrollHandler);
     return () => window.removeEventListener("scroll", scrollHandler);
