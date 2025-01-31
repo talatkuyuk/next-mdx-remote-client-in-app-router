@@ -12,6 +12,7 @@
   },
   "dependencies": {
     "@heroicons/react": "^2.2.0",
+    "@shikijs/rehype": "^2.2.0",
     "@types/hast": "^3.0.4",
     "@types/mdast": "^4.0.4",
     "clsx": "^2.1.1",
@@ -26,7 +27,6 @@
     "reading-time-estimator": "^1.11.0",
     "recma-mdx-change-props": "^1.1.1",
     "recma-mdx-escape-missing-components": "^1.1.0",
-    "rehype-highlight": "^7.0.1",
     "rehype-highlight-code-lines": "^1.0.4",
     "rehype-pre-language": "^1.1.0",
     "rehype-raw": "^7.0.0",
