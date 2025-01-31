@@ -7,7 +7,6 @@ import Header from "@/components/Header";
 import MotionFade from "@/components/MotionFade";
 
 import "@/styles/styles.css";
-import "@/styles/hljs.css";
 
 const inter = Inter({ subsets: ["latin"] });
 
