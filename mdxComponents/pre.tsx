@@ -32,7 +32,7 @@ const pre = (props: React.ComponentPropsWithoutRef<"pre">) => {
 
   return (
     <pre ref={preRef} {...props}>
-      <span className="pre-language-label">{props.className}</span>
+      <span className="pre-language-label">{React.isValidElement(props.children) && props.children.props.className.replace("language-", "")}</span>
       <button className="pre-copy-button" onClick={onCopy}>
         {copied ? (
           <IconDone fill="var(--text-weak)" width="18px" height="18px" />
