@@ -3,7 +3,7 @@ const VisitGithub = (props: React.ComponentPropsWithoutRef<"p">) => {
     <p {...props}>
       Visit github for&nbsp;
       <a
-        href="https://github.com/talatkuyuk/next-mdx-remote-client-in-pages-router"
+        href="https://github.com/talatkuyuk/next-mdx-remote-client-in-app-router"
         target="_blank"
       >
         source code
