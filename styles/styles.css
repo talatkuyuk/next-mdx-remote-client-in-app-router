@@ -623,9 +623,13 @@ pre:hover .pre-copy-button {
 
 /******** PRE - CODE ********/
 
+[data-theme="dark"] .shiki span {
+  color: var(--shiki-dark) !important;
+}
+
 pre,
 pre code {
-  background-color: var(--surface1);
+  background-color: var(--surface1) !important;
 
   direction: ltr;
   text-align: left;
