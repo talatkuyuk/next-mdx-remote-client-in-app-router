@@ -10,7 +10,7 @@ import remarkFlexibleParagraphs from "remark-flexible-paragraphs";
 import remarkFlexibleToc from "remark-flexible-toc";
 import remarkInsert from "remark-ins";
 import rehypeRaw from "rehype-raw";
-import rehypeHighlight from "rehype-highlight";
+import rehypeShiki from "@shikijs/rehype";
 import rehypeHighlightLines, {
   type HighlightLinesOptions,
 } from "rehype-highlight-code-lines";
@@ -55,7 +55,16 @@ const remarkPlugins: PluggableList = [
 ];
 
 const rehypePlugins: PluggableList = [
-  rehypeHighlight,
+  [
+    rehypeShiki,
+    {
+      addLanguageClass: true,
+      themes: {
+        dark: "github-dark",
+        light: "github-light",
+      },
+    },
+  ],
   [
     rehypeHighlightLines,
     {
