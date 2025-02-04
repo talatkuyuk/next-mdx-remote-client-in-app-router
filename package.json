@@ -16,7 +16,7 @@
     "@types/mdast": "^4.0.4",
     "clsx": "^2.1.1",
     "mdast-util-to-hast": "^13.2.0",
-    "motion": "^12.0.6",
+    "motion": "^12.0.11",
     "next": "^14.2.23",
     "next-mdx-remote-client": "^1.0.7",
     "next-themes": "^0.4.4",
@@ -26,7 +26,7 @@
     "reading-time-estimator": "^1.11.0",
     "recma-mdx-change-props": "^1.1.1",
     "recma-mdx-escape-missing-components": "^1.1.0",
-    "rehype-highlight": "^7.0.1",
+    "rehype-highlight": "^7.0.2",
     "rehype-highlight-code-lines": "^1.0.4",
     "rehype-pre-language": "^1.1.0",
     "rehype-raw": "^7.0.0",
@@ -42,7 +42,7 @@
     "unified": "^11.0.5"
   },
   "devDependencies": {
-    "@types/node": "^22.12.0",
+    "@types/node": "^22.13.1",
     "@types/react": "^18.3.18",
     "@types/react-dom": "^18.3.5",
     "eslint": "^8.57.1",
