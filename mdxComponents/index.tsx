@@ -8,7 +8,7 @@ import Button from "./Button";
 import CountButton from "./CountButton";
 import Hello from "./Hello";
 import Toc from "./Toc";
-import { default as pre } from "./Pre_";
+import { default as pre } from "./Pre";
 import Admonition, { admonition } from "./Admonition";
 import BlockQuote, { default as blockquote } from "./BlockQuote";
 
