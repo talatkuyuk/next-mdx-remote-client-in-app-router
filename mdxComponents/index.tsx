@@ -3,14 +3,14 @@ import Image from "next/image";
 import Link from "next/link";
 import type { MDXComponents } from "next-mdx-remote-client/rsc";
 
+import ContextConsumer from "./ContextConsumer";
 import Button from "./Button";
 import CountButton from "./CountButton";
 import Hello from "./Hello";
-import ContextConsumer from "./ContextConsumer";
 import Toc from "./Toc";
-import BlockQuote, { default as blockquote } from "./BlockQuote";
+import { default as pre } from "./Pre_";
 import Admonition, { admonition } from "./Admonition";
-import pre from "./pre";
+import BlockQuote, { default as blockquote } from "./BlockQuote";
 
 export const components: MDXComponents = {
   Toc,
@@ -26,10 +26,10 @@ export const components: MDXComponents = {
   },
   Image,
   Link,
+  pre,
   blockquote,
   BlockQuote,
   admonition,
   Admonition,
-  pre,
   ContextConsumer,
 };

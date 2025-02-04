@@ -5,7 +5,7 @@ import React, { type ElementRef, useRef, useState } from "react";
 import IconContentCopy from "@/components/icons/IconContentCopy";
 import IconDone from "@/components/icons/IconDone";
 
-const pre = (props: React.ComponentPropsWithoutRef<"pre">) => {
+const Pre = (props: React.ComponentPropsWithoutRef<"pre">) => {
   const preRef = useRef<ElementRef<"pre">>(null);
   const [copied, setCopied] = useState(false);
 
@@ -45,4 +45,4 @@ const pre = (props: React.ComponentPropsWithoutRef<"pre">) => {
   );
 };
 
-export default pre;
+export default Pre;
