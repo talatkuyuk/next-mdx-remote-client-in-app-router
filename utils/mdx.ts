@@ -1,4 +1,5 @@
 import { type PluggableList } from "unified";
+import { nodeTypes } from "@mdx-js/mdx";
 import remarkGfm from "remark-gfm";
 import remarkEmoji from "remark-emoji";
 import remarkFlexibleMarkers from "remark-flexible-markers";
@@ -10,26 +11,17 @@ import remarkFlexibleParagraphs from "remark-flexible-paragraphs";
 import remarkFlexibleToc from "remark-flexible-toc";
 import remarkInsert from "remark-ins";
 import rehypeRaw from "rehype-raw";
+import rehypeCodeMeta from "rehype-code-meta";
 import rehypeHighlight from "rehype-highlight";
-import rehypeHighlightLines, {
-  type HighlightLinesOptions,
-} from "rehype-highlight-code-lines";
+import rehypeHighlightLines from "rehype-highlight-code-lines";
 import rehypeSlug from "rehype-slug";
 import rehypePreLanguage from "rehype-pre-language";
 import recmaMdxEscapeMissingComponents from "recma-mdx-escape-missing-components";
 import recmaMdxChangeProps from "recma-mdx-change-props";
+import recmaMdxImportReact from "recma-mdx-import-react";
 
 import { toTitleCase } from ".";
 import { html } from "./rehype-handlers";
-
-// from @mdx-js/mdx
-const nodeTypes = [
-  "mdxFlowExpression",
-  "mdxJsxFlowElement",
-  "mdxJsxTextElement",
-  "mdxTextExpression",
-  "mdxjsEsm",
-];
 
 const remarkPlugins: PluggableList = [
   remarkGfm,
@@ -55,17 +47,12 @@ const remarkPlugins: PluggableList = [
 ];
 
 const rehypePlugins: PluggableList = [
+  rehypeCodeMeta,
+  [rehypeRaw, { passThrough: nodeTypes }], // to allow HTML elements in "md" format, "passThrough" is for "mdx" works as well
   rehypeHighlight,
-  [
-    rehypeHighlightLines,
-    {
-      showLineNumbers: true,
-      lineContainerTagName: "div",
-    } as HighlightLinesOptions,
-  ],
+  [rehypeHighlightLines, { showLineNumbers: true }],
   rehypeSlug,
   rehypePreLanguage,
-  [rehypeRaw, { passThrough: nodeTypes }], // to allow HTML elements in "md" format, "passThrough" is for "mdx" works as well
 ];
 
 const recmaPlugins: PluggableList = [
@@ -74,6 +61,7 @@ const recmaPlugins: PluggableList = [
     ["Bar", "Toc", "ContextConsumer", "ComponentFromOuterProvider"],
   ],
   recmaMdxChangeProps,
+  recmaMdxImportReact,
 ];
 
 export const plugins = {

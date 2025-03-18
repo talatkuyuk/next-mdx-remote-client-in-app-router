@@ -676,14 +676,7 @@ pre > code {
   margin-left: -12px;
   margin-right: -12px;
   border-left: 4px solid transparent; /* prepare for highlighted code-lines */
-}
 
-div.code-line:empty {
-  /* it is necessary because there is no eol character in div code-lines */
-  height: 15.5938px; /* calculated height */
-}
-
-span.code-line {
   min-width: 100%;
   display: inline-block;
 }

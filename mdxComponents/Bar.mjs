@@ -1,6 +1,16 @@
-import React from "react";
+import * as ReactModule from "react";
 
-const Bar = ({ status }) => {
+// react server component
+const Bar = ({ runtimeProps, status }) => {
+  const { React = ReactModule } = runtimeProps;
+
+  // for escaping pre-rendering error
+  if (!React) {
+    return "<Bar /> server component doesn't work due to missing React instance";
+  }
+
+  React.useId(); // for testing
+
   return React.createElement(
     "div",
     {
