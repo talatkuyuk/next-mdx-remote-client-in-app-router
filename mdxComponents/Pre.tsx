@@ -9,6 +9,8 @@ const Pre = (props: React.ComponentPropsWithoutRef<"pre">) => {
   const preRef = useRef<ElementRef<"pre">>(null);
   const [copied, setCopied] = useState(false);
 
+  const { className: language, children, ...rest } = props;
+
   const onCopy = (): void => {
     if (!preRef.current) return;
 
@@ -31,8 +33,8 @@ const Pre = (props: React.ComponentPropsWithoutRef<"pre">) => {
   };
 
   return (
-    <pre ref={preRef} {...props}>
-      <span className="pre-language-label">{props.className}</span>
+    <pre ref={preRef} {...rest}>
+      <span className="pre-language-label">{language}</span>
       <button className="pre-copy-button" onClick={onCopy}>
         {copied ? (
           <IconDone fill="var(--text-weak)" width="18px" height="18px" />
@@ -40,7 +42,7 @@ const Pre = (props: React.ComponentPropsWithoutRef<"pre">) => {
           <IconContentCopy fill="var(--text-weak)" width="18px" height="18px" />
         )}
       </button>
-      {props.children}
+      {children}
     </pre>
   );
 };

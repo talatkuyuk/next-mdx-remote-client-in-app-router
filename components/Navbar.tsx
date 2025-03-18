@@ -1,3 +1,5 @@
+"use client";
+
 import React, { useCallback, Dispatch, SetStateAction } from "react";
 import { usePathname } from "next/navigation";
 
