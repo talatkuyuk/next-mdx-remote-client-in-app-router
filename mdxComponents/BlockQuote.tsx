@@ -1,10 +1,7 @@
-import type { BlockquoteHTMLAttributes, DetailedHTMLProps } from "react";
+export default function BlockQuote(
+  props: React.ComponentPropsWithoutRef<"blockquote">
+) {
+  const { children, ...rest } = props;
 
-type BlockquoteProps = DetailedHTMLProps<
-  BlockquoteHTMLAttributes<HTMLQuoteElement>,
-  HTMLQuoteElement
->;
-
-export default function BlockQuote({ children, ...props }: BlockquoteProps) {
-  return <blockquote {...props}>{children}</blockquote>;
+  return <blockquote {...rest}>{children}</blockquote>;
 }
