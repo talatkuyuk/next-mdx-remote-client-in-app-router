@@ -18,14 +18,14 @@
     "@types/mdast": "^4.0.4",
     "clsx": "^2.1.1",
     "mdast-util-to-hast": "^13.2.0",
-    "motion": "^12.5.0",
-    "next": "^14.2.25",
+    "motion": "^12.6.2",
+    "next": "^14.2.26",
     "next-mdx-remote-client": "^1.1.0",
     "next-themes": "^0.4.6",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-spinners": "^0.15.0",
-    "reading-time-estimator": "^1.11.0",
+    "reading-time-estimator": "^1.12.0",
     "recma-mdx-change-props": "^1.1.2",
     "recma-mdx-escape-missing-components": "^1.1.2",
     "recma-mdx-import-react": "^1.1.1",
@@ -46,11 +46,11 @@
     "unified": "^11.0.5"
   },
   "devDependencies": {
-    "@types/node": "^22.13.10",
-    "@types/react": "^18.3.18",
+    "@types/node": "^22.13.13",
+    "@types/react": "^18.3.20",
     "@types/react-dom": "^18.3.5",
     "eslint": "^8.57.1",
-    "eslint-config-next": "^14.2.25",
+    "eslint-config-next": "^14.2.26",
     "typescript": "^5.8.2"
   }
 }
