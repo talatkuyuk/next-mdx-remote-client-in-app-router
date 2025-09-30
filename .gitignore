@@ -20,7 +20,6 @@
 .DS_Store
 *.pem
 certificates
-package-lock.json
 
 # debug
 npm-debug.log*
