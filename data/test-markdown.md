@@ -72,9 +72,13 @@ The `allowDangerousHtml` is set to `true` by default in `mdx-js/mdx`. If the fil
 The remark plugin `remark-toc` is one of the tool for creating TOC inline in the markdown files.
 :::
 
-::: details {details} Sample Details-Summary {summary}
-The `remark-flexible-containers` can also make this kind of `details`-`summary` HTML elements.
+:::: note Containers can be nested
+
+::: details {@open} Sample Details-Summary
+The `remark-flexible-containers` can also make this kind of `details`-`summary` HTML elements even in an another outer container.
 :::
+
+::::
 
 ### Heading For Code Highlighting
 
