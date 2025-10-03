@@ -1,5 +1,7 @@
+import { Suspense } from "react";
 import type { Metadata } from "next";
 import { MDXRemote, type MDXRemoteOptions } from "next-mdx-remote-client/rsc";
+import { getFrontmatter } from "next-mdx-remote-client/utils";
 import { readingTime } from "reading-time-estimator";
 
 import type { Frontmatter } from "@/types";
@@ -7,7 +9,7 @@ import { plugins, remarkRehypeOptions } from "@/utils/mdx";
 import { getMarkdownFromSlug, getMarkdownFiles } from "@/utils/file";
 import { components } from "@/mdxComponents";
 import ErrorComponent from "@/components/ErrorComponent";
-import { getFrontmatter } from "next-mdx-remote-client/utils";
+import LoadingComponent from "@/components/LoadingComponent";
 
 type Props = {
   params: { slug: string };
@@ -53,12 +55,14 @@ export default async function Post({ params }: Props) {
   };
 
   return (
-    <MDXRemote
-      source={source}
-      options={options}
-      components={components}
-      onError={ErrorComponent}
-    />
+    <Suspense fallback={<LoadingComponent />}>
+      <MDXRemote
+        source={source}
+        options={options}
+        components={components}
+        onError={ErrorComponent}
+      />
+    </Suspense>
   );
 }
 
