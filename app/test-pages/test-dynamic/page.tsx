@@ -55,7 +55,7 @@ export default async function TestPage({ searchParams }: Props) {
     disableImports: true,
     parseFrontmatter: true,
     scope: {
-      readingTime: readingTime(source, 100).text,
+      readingTime: readingTime(source, { wordsPerMinute: 100 }).text,
       props: { foo: "props in scope is working" },
     },
     vfileDataIntoScope: ["toc"], // the "remark-flexible-toc" plugin produces vfile.data.toc

@@ -28,7 +28,7 @@ export default async function TestPage() {
     disableImports: true,
     parseFrontmatter: true,
     scope: {
-      readingTime: readingTime(source, 100).text,
+      readingTime: readingTime(source, { wordsPerMinute: 100 }).text,
       props: { foo: "props in scope is working" },
     },
     mdxOptions: {
@@ -50,7 +50,7 @@ export default async function TestPage() {
 
   expect(mod).toEqual({}); // it is empty object due to disabled exports
   expect(frontmatter.author).toBe("foofoo");
-  expect(scope.readingTime).toBe("5 min read");
+  expect(scope.readingTime).toBe("4 min read");
 
   // **********************************************************
 

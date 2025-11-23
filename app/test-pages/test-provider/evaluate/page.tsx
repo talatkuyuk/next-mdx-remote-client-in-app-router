@@ -31,7 +31,7 @@ export default async function TestPage() {
     disableImports: true,
     parseFrontmatter: true,
     scope: {
-      readingTime: readingTime(source, 100).text,
+      readingTime: readingTime(source, { wordsPerMinute: 100 }).text,
       props: { foo: "props in scope is working" },
     },
     mdxOptions: {
@@ -54,7 +54,7 @@ export default async function TestPage() {
   // eslint-disable-next-line @typescript-eslint/no-unsafe-function-type
   expect((mod.factorial as Function)?.(mod.num)).toEqual(720);
   expect(frontmatter.author).toBe("barbar");
-  expect(scope.readingTime).toBe("5 min read");
+  expect(scope.readingTime).toBe("4 min read");
 
   // **********************************************************
 

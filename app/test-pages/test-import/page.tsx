@@ -24,7 +24,7 @@ export default async function TestPage() {
   const options: MDXRemoteOptions = {
     parseFrontmatter: true,
     scope: {
-      readingTime: readingTime(source, 100).text,
+      readingTime: readingTime(source, { wordsPerMinute: 100 }).text,
       props: { foo: "props in scope is working" },
     },
     mdxOptions: {

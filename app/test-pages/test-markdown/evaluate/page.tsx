@@ -27,7 +27,7 @@ export default async function TestPage() {
     parseFrontmatter: true,
     // actually scope is useless in markdown, just to show it is effectless
     scope: {
-      readingTime: readingTime(source, 100).text,
+      readingTime: readingTime(source, { wordsPerMinute: 100 }).text,
     },
     mdxOptions: {
       format,
@@ -49,7 +49,7 @@ export default async function TestPage() {
 
   expect(mod).toEqual({}); // markdown files does not export anything
   expect(frontmatter.author).toBe("markdown");
-  expect(scope.readingTime).toBe("6 min read");
+  expect(scope.readingTime).toBe("5 min read");
 
   // **********************************************************
 

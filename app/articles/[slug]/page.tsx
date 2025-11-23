@@ -43,7 +43,7 @@ export default async function Post({ params }: Props) {
     disableImports: true, // import statements in MDX don't work in pages router
     parseFrontmatter: true,
     scope: {
-      readingTime: readingTime(source, 100).text,
+      readingTime: readingTime(source, { wordsPerMinute: 100 }).text,
       props: { foo: "props in scope is working" },
     },
     vfileDataIntoScope: "toc", // the "remark-flexible-toc" plugin produces vfile.data.toc

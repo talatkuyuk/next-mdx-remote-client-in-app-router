@@ -50,7 +50,7 @@ export default async function TestPage({ searchParams }: Props) {
     disableImports: true,
     parseFrontmatter: true,
     scope: {
-      readingTime: readingTime(source, 100).text,
+      readingTime: readingTime(source, { wordsPerMinute: 100 }).text,
       props: { foo: "props in scope is working" },
     },
     vfileDataIntoScope: ["toc"], // the "remark-flexible-toc" plugin produces vfile.data.toc
@@ -74,7 +74,7 @@ export default async function TestPage({ searchParams }: Props) {
   // eslint-disable-next-line @typescript-eslint/no-unsafe-function-type
   expect((mod.factorial as Function)?.(mod.num)).toEqual(720);
   expect(frontmatter.author).toBe("toctoc");
-  expect(scope.readingTime).toBe("5 min read");
+  expect(scope.readingTime).toBe("4 min read");
 
   // **********************************************************
 

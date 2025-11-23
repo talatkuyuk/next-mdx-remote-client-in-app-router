@@ -25,7 +25,7 @@ export default async function TestPage() {
     parseFrontmatter: true,
     // actually scope is useless in markdown, just to show it is effectless
     scope: {
-      readingTime: readingTime(source, 100).text,
+      readingTime: readingTime(source, { wordsPerMinute: 100 }).text,
     },
     mdxOptions: {
       format,
