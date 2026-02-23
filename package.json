@@ -1,6 +1,6 @@
 {
   "name": "next-mdx-remote-client-in-app-router",
-  "version": "1.0.14",
+  "version": "1.0.15",
   "public": true,
   "scripts": {
     "dev": "next dev",
